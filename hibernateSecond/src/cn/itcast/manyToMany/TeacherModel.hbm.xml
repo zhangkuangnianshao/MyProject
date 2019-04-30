@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    
+  <hibernate-mapping>
+  
+  	<class name="cn.itcast.manyToMany.TeacherModel" table="t_teacher">
+  		<!-- 要将teacher类中的数据加入二级缓存 -->
+  	<!-- 	<cache usage="read-only"/> -->
+  		<id name= "id">
+  			<generator class="native"/>
+  		</id>
+  		
+	<property name="name"/>  
+	
+	<set name="sms" table="s_t">
+		<!-- 将当前teacherModel类对应的学生集合加入到二级缓存 -->
+		<!--  <cache usage="read-only"/> -->
+		<key column="t_id"/>
+ 
+	 <many-to-many 
+	 	column="s_id"
+	 	class="cn.itcast.manyToMany.StudentModel"
+	 />
+
+	</set>	
+	
+	
+	
+	
+  	
+  	</class>
+  
+  </hibernate-mapping>

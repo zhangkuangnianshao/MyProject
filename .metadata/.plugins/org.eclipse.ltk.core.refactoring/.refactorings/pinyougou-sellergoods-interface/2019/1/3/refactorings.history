@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;com.pinyougou.sellergoods.service.impl&apos; to &apos;pinyougou-sellergoods-service/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;pinyougou-sellergoods-interface&apos;&#x0D;&#x0A;- Destination element: &apos;pinyougou-sellergoods-service/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;pinyougou-sellergoods-interface/src/main/java/com.pinyougou.sellergoods.service.impl&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=pinyougou-sellergoods-service/src\/main\/java" element1="/src\/main\/java&lt;com.pinyougou.sellergoods.service.impl" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1547551888999" version="1.0"/>
+</session>

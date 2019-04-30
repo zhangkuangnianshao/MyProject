@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<!-- 配置关于数据库连接的四个项 driverClass url username password -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///hibernatetest</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+
+
+		<!-- 可以将向数据库发送的sql显示出来 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- hibernate的方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 自动创建表 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<!-- 用于设置事务提交方式 -->
+		<property name="hibernate.connection.autocommit">false</property>
+		
+		<!--  开启二级缓存 -->
+		 <property name="hibernate.cache.use_second_level_cache">true</property>
+		<!-- 指定二级缓存供应商 -->
+		 <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		<!-- 打开查询缓存 ：原理是key ,value -->
+		<property name = "cache.use_query_cache">true</property>  
+		
+		
+		
+		<!-- 配置hibernate的映射文件所在位置 -->
+		
+		<mapping resource="cn/itcast/manyToMany/StudentModel.hbm.xml" /> 
+		<mapping resource="cn/itcast/manyToMany/TeacherModel.hbm.xml" /> 
+		<!-- 将类对象加载进入到二级缓存中 -->
+		
+  	<class-cache usage="read-write" class="cn.itcast.manyToMany.StudentModel"/>  
+		<class-cache usage="read-write" class="cn.itcast.manyToMany.TeacherModel"/>
+		
+		<!-- 
+		 	usage : 
+		 		隔离级别
+		 		read-only 只读
+		 		read-write  读写
+		
+		 -->
+		<!-- 将集合对象加载进入二级缓存中 -->
+		<collection-cache usage="read-write" collection="cn.itcast.manyToMany.TeacherModel.sms"/>
+		<collection-cache usage="read-write" collection="cn.itcast.manyToMany.StudentModel.tms"/>
+		
+		 
+	</session-factory>
+
+</hibernate-configuration>	
